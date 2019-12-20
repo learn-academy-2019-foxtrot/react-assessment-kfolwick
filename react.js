@@ -6,6 +6,20 @@
 // 1. Write a React component that prints "I am a component!" Be sure to include all necessary imports, exports, etc.
 
 
+import React from 'react';
+import './App.css';
+
+class App extends React.Component{
+render(){
+  return (
+    <div className="App">
+        <h1>I am a component!</h1>
+    </div>
+  );
+}
+}
+
+export default App;
 
 
 
@@ -13,9 +27,14 @@
 
 var names = ["Ford Prefect", "Arthur Dent", "Trillian", "Zaphod", "Vogon", "Marvin, the Paranoid Android"]
 
-for(let i=0; i<names.length; i++){
-  console.log(`${names[i]} is ${names[i].length} characters long.`)
-}
+// for(let i=0; i<names.length; i++){
+//   console.log(`${names[i]} is ${names[i].length} characters long.`)
+// }
+
+let mappedNames = names.map((value, index) => {
+  return `${value} is ${value.length} characters long.`
+})
+console.log(mappedNames.join('\r\n'));
 
 
 
@@ -27,7 +46,7 @@ this.state = {
   dislikes: ["mirrors", "garlic", "wooden stakes"]
 }
 
-
+const {name, home, dislikes} = this.state
 
 // 4. Write a React method that would add one and update the state of the count each time the method is called.
 
@@ -35,13 +54,18 @@ this.state = {
   count: 0
 }
 
+countUp = () => {
+this.setState({ counter : this.state.counter +1 })
+}
+
 
 
 // 5. There are four mistakes in this code that would cause it to break our application. Find the mistakes and fix them:
 
 import React, { Component } from 'react';
+import App from './App.js'
 
-class Recipes{
+class Recipes extends Component{
   constructor(props){
     super(props)
     this.state = {
@@ -53,9 +77,9 @@ class Recipes{
 
   render() {
     return(
-      let recipe = recipes.map(recipe => {
+      let recipe = recipes.map((recipes.name) => {
         return(
-          <li key={recipe.name}>{recipe.name}</li>
+          <li key={recipes.name}>{recipes.name}</li>
         )
       })
       <ul>
